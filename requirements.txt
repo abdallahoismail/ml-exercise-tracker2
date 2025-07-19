@@ -1,0 +1,12 @@
+ipykernel
+jupyterlab
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+pip
+scipy
+statsmodels
+glob2
+requests
