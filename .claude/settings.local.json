@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv:*)",
+      "Bash(ls:*)",
+      "Bash(python:*)",
+      "Bash(.venv/Scripts/python.exe:*)"
+    ],
+    "deny": []
+  }
+}
