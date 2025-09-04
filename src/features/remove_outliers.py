@@ -12,6 +12,8 @@ warnings.filterwarnings("ignore")
 
 df = pd.read_pickle("../../data/interim/01_preprocessed_data.pkl")
 df.head()
+df.shape
+df.isnull().sum()
 
 # set rcParams for better visualization
 plt.rcParams["figure.figsize"] = (20, 12)
@@ -345,4 +347,4 @@ for col in numeric_cols:
 outliers_removed_df.info()
 
 # export the processed dataframe
-outliers_removed_df.to_pickle("../../data/interim/02_outliers_removed_chauvenet.pkl")
+outliers_removed_df.to_pickle("../../data/interim/02.1_outliers_removed_chauvenet.pkl")
