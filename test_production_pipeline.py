@@ -3,6 +3,22 @@ import numpy as np
 import sys
 import os
 
+###
+
+# --- FIX START ---
+# Construct an absolute path to the data file
+# project_root = os.path.dirname(os.path.abspath(__file__))
+# data_path = os.path.join(
+#     project_root, "data", "interim", "01_preprocessed_data.pkl"
+# )
+
+# # Load test data using the absolute path
+# test_data = pd.read_pickle(data_path)
+# # --- FIX END ---
+
+###
+
+
 # Add src to path
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 
