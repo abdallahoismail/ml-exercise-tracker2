@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from features.DataTransformation import LowPassFilter, PrincipalComponentAnalysis
 from features.TemporalAbstraction import NumericalAbstraction
+from features.model_persistence_guide import ProductionReadyPCA, ProductionReadyClustering
 
 
 # --------------------------------------------------------------
@@ -174,9 +175,9 @@ list(filter(lambda x: "lowpass" in x, df_lowpass.columns))
 # --------------------------------------------------------------
 df_pca = df_lowpass.copy()
 
-pca = PrincipalComponentAnalysis()
+pca = ProductionReadyPCA()
 
-pc_value = pca.determine_pc_explained_variance(df_pca, lowpass_cols)
+# pc_value = pca.determine_pc_explained_variance(df_pca, lowpass_cols)
 
 # plotting the explained variance - scree plot
 plt.figure(figsize=(10, 6))
@@ -189,7 +190,10 @@ plt.grid()
 plt.show()
 
 
-df_pca = pca.apply_pca(df_pca, lowpass_cols, 3)
+df_pca = pca.fit_and_apply_pca(df_pca, lowpass_cols, 3)
+
+# save pca model to transform new data later
+pca.save_pca_model("../../models/pca_model.pkl")
 
 subset = df_pca[df_pca["set"] == 25]
 subset[["pca_1", "pca_2", "pca_3"]].plot(subplots=True)
